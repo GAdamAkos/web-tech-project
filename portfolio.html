@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólió - Képes Gábor Fotós</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Képes Gábor</h1>
+        <p>Professzionális Fotós</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="portfolio.html" class="active">Portfólió</a></li>
+            <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+            <li><a href="rolam.html">Rólam</a></li>
+            <li><a href="kapcsolat.html">Kapcsolat</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Munkáim</h2>
+        <p>Itt láthatók a korábbi munkáim kategóriákba rendezve.</p>
+        <section class="galeria">
+          <h3>Portrék</h3>
+          <img src="images/portre1.jpg" alt="Portré fotó 1" class="galeria-kep">
+          
+          <h3>Természet</h3>
+          <img src="images/termeszet1.jpg" alt="Természetfotó 1" class="galeria-kep">
+          
+          <div id="nagy-kep-kontener">
+              <img id="nagy-kep-src" src="" alt="Nagyított kép">
+          </div>
+      </section>
+
+      <section class="video-szekcio">
+          <h3>Werkfilm (Ahogy készült)</h3>
+          <video id="werk-video" width="100%">
+              <source src="video/werkfilm.mp4" type="video/mp4">
+              A böngésződ nem támogatja a videó lejátszást.
+          </video>
+          <div class="video-gombok">
+              <button id="video-play">Lejátszás</button>
+              <button id="video-pause">Szünet</button>
+              <button id="video-restart">Újraindítás</button>
+          </div>
+      </section>
+        
+        </main>
+
+    <footer>
+        <p>Copyright &copy; 2025 - Képes Gábor Projekt (Neptun-kód: DY98R5)</p>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

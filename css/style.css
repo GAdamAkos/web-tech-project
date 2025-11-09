@@ -1,0 +1,347 @@
+/* =========================================================
+   DESIGN TOKENEK – DARK/LIGHT
+   ========================================================= */
+:root{
+  --bg: #0f1115;
+  --surface: #141821;
+  --text: #e6e8ee;
+  --muted: #9aa3b2;
+  --primary: #5a8cff;
+  --accent: #ffd166;
+
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+
+  /* 8pt spacing scale */
+  --space-1: 8px;  --space-2: 16px; --space-3: 24px; --space-4: 32px;
+  --space-5: 48px; --space-6: 64px;
+
+  /* fluid type */
+  --fs-xxl: clamp(28px, 4vw, 48px);
+  --fs-xl: clamp(22px, 3vw, 32px);
+  --fs-lg: clamp(18px, 2.4vw, 24px);
+  --fs-md: 16px;
+  --fs-sm: 14px;
+
+  /* derived */
+  --border: color-mix(in srgb, var(--text) 14%, transparent);
+  --surface-2: color-mix(in srgb, var(--surface) 92%, var(--bg) 8%);
+}
+
+:root.light{
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --text: #0b0d12;
+  --muted: #4b5563;
+  --primary: #2852ff;
+  --accent: #ff7e67;
+  --shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+
+html { color-scheme: light dark; }
+
+/* =========================================================
+   ALAPOK
+   ========================================================= */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body{
+  background: var(--bg);
+  color: var(--text);
+  font: 400 var(--fs-md)/1.6 system-ui, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+}
+
+h1{ font-size: var(--fs-xxl); line-height: 1.15; margin: 0 0 var(--space-2); }
+h2{ font-size: var(--fs-xl);  line-height: 1.2;  margin: 0 0 var(--space-2); }
+h3{ font-size: var(--fs-lg);  line-height: 1.25; margin: 0 0 var(--space-2); }
+p  { margin: 0 0 var(--space-2); }
+
+a, button, input, select, textarea { outline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--accent);
+}
+
+.container{
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: var(--space-4) 0;
+}
+
+.card{
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-3);
+  transition: transform .2s ease, box-shadow .3s ease;
+}
+.card:hover{ transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,.28); }
+
+/* =========================================================
+   HEADER / FOOTER
+   ========================================================= */
+header, footer{
+  background: var(--surface);
+  color: var(--text);
+  text-align: center;
+}
+header{ padding-block: var(--space-5) var(--space-2); position: relative; }
+header h1{ letter-spacing: .2px; }
+header p { color: var(--muted); }
+
+/* finom elválasztó a header alatt */
+header::after{
+  content: "";
+  display: block;
+  height: 1px;
+  width: min(900px, 92vw);
+  margin: 14px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--text) 18%, transparent) 20%,
+    color-mix(in srgb, var(--text) 18%, transparent) 80%,
+    transparent
+  );
+}
+
+footer{
+  padding: 15px;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   NAV – STICKY, SZINTBEN, “PILL” LINKEK
+   ========================================================= */
+nav{
+  position: sticky; top: 0; z-index: 50;
+  background: var(--surface);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+nav ul{
+  display: flex; align-items: center; justify-content: center;
+  gap: 26px; padding: 12px 18px; list-style: none; margin: 0;
+}
+nav li{ display: flex; align-items: center; }
+nav a{
+  display: grid; place-items: center;
+  height: 48px; padding: 0 22px; line-height: 1;
+  border-radius: 12px; font-weight: 700; box-sizing: border-box;
+  color: color-mix(in srgb, var(--text) 85%, transparent);
+  text-decoration: none;
+}
+nav a:hover{
+  background: color-mix(in srgb, var(--primary) 12%, var(--surface));
+  color: var(--text);
+}
+nav a.active{
+  background: var(--primary);
+  color: #fff;
+}
+
+/* =========================================================
+   MAIN / SZEKCIÓK
+   ========================================================= */
+main{
+  width: min(1100px, 92vw);
+  margin: var(--space-4) auto;
+  padding: var(--space-4);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  flex-grow: 1;
+}
+
+section{ margin-block: var(--space-5); }
+
+.content-section{
+  display: flex; flex-wrap: wrap; align-items: flex-start;
+  gap: 40px; margin-bottom: var(--space-6);
+}
+
+.main-content{ flex: 2; min-width: 300px; max-width: 70ch; }
+article.kiemelt-cikk{ margin-top: var(--space-3); }
+
+aside{
+  flex: 1; min-width: 250px;
+  background: var(--surface-2);
+  padding: var(--space-3);
+  border-left: 5px solid var(--primary);
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+aside h3{
+  color: var(--primary);
+  margin-top: 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+aside a{
+  display: inline-block; margin-top: 5px;
+  color: var(--primary); font-weight: bold; text-decoration: none;
+}
+aside a:hover{ text-decoration: underline; }
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{ position: relative; text-align: center; color: #fff; margin-bottom: var(--space-5); }
+.hero-text{
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  z-index: 2; background: rgba(0,0,0,.5); padding: 20px 40px; border-radius: 8px; max-width: 80%;
+}
+.hero-text h2{ font-size: 2.8em; margin-bottom: 10px; color: #fff; }
+.hero-text p  { font-size: 1.3em; color: #eee; }
+#hero-image{ width: 100%; height: 450px; object-fit: cover; display: block; filter: brightness(.72); }
+
+/* =========================================================
+   PORTFÓLIÓ GALÉRIA + LIGHTBOX
+   ========================================================= */
+.galeria { margin-bottom: 30px; }
+.galeria h3{ border-bottom: 1px solid var(--border); padding-bottom: 5px; margin-top: 15px; }
+.galeria img.galeria-kep{
+  width: 200px; height: auto; margin: 10px; cursor: pointer;
+  border: 3px solid var(--border); transition: transform .2s;
+}
+.galeria img.galeria-kep:hover{ transform: scale(1.05); border-color: var(--primary); }
+
+#nagy-kep-kontener{
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,.85); text-align: center; padding: 20px; cursor: pointer;
+}
+#nagy-kep-src{
+  max-width: 90%; max-height: 90%; margin-top: 2.5%; border: 5px solid #fff;
+}
+
+/* =========================================================
+   VIDEÓ
+   ========================================================= */
+.video-szekcio{ margin-top: 30px; }
+.video-gombok button{
+  padding: 10px 15px; font-size: 1em; border-radius: 4px; cursor: pointer;
+  margin-top: 10px; margin-right: 5px;
+  background: color-mix(in srgb, var(--surface) 88%, #000 12%);
+  color: var(--text); border: 1px solid var(--border);
+}
+.video-gombok button:hover{
+  background: color-mix(in srgb, var(--surface) 76%, #000 24%);
+}
+
+/* =========================================================
+   RÓLAM / BEMUTATKOZÁS
+   ========================================================= */
+.bemutatkozas{ text-align: center; margin-bottom: 30px; }
+.bemutatkozas-szoveg{ max-width: 800px; margin-left: auto; margin-right: auto; }
+.bemutatkozas-szoveg h3{ margin-bottom: 15px; }
+.bemutatkozas-szoveg p{
+  font-size: 1.1em; line-height: 1.7; text-align: center; color: var(--text);
+}
+:root:not(.light) .bemutatkozas-szoveg p{
+  color: color-mix(in srgb, #ffffff 88%, var(--text) 12%);
+}
+#rolam-kep{
+  width: 80%; max-width: 700px; height: auto;
+  border: 5px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  border-radius: 4px; margin-bottom: 25px;
+}
+.image-caption{ text-align: center; margin-top: 10px; font-size: .98em; color: var(--muted); }
+:root:not(.light) .image-caption{ color: color-mix(in srgb, #ffffff 78%, var(--text) 22%); }
+
+/* =========================================================
+   TÁBLÁZAT (szolgáltatások)
+   ========================================================= */
+#arak-tabla{ width: 100%; border-collapse: collapse; margin-top: 20px; border-spacing: 0 2px; }
+#arak-tabla th, #arak-tabla td{
+  border: 1px solid var(--border); padding: 14px 16px; text-align: left;
+}
+#arak-tabla th{ background: var(--primary); color: #fff; font-weight: bold; }
+#arak-tabla tbody tr:nth-child(even){ background: color-mix(in srgb, var(--surface) 94%, var(--bg) 6%); }
+#arak-tabla tbody tr:hover{ background: color-mix(in srgb, var(--primary) 14%, var(--surface)); }
+
+/* =========================================================
+   ŰRLAPOK
+   ========================================================= */
+.form-control{ margin-bottom: 22px; }
+.form-control label{ display: block; margin-bottom: 5px; font-weight: 700; }
+.form-control input[type="text"],
+.form-control input[type="email"],
+.form-control input[type="date"],
+.form-control input[list],
+.form-control textarea{
+  width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 4px;
+  background: var(--surface); color: var(--text); font-size: 1em;
+}
+fieldset{
+  border: 1px solid var(--border); padding: 15px; margin-bottom: 20px; border-radius: 4px;
+}
+fieldset legend{ font-weight: bold; padding: 0 10px; }
+
+.form-buttons{ display: flex; gap: 12px; flex-wrap: wrap; }
+button[type="submit"]{
+  background: var(--primary); color: #fff; border: none; border-radius: 4px; padding: 12px 20px; font-size: 1em; cursor: pointer;
+}
+button[type="submit"]:hover{ background: color-mix(in srgb, var(--primary) 82%, black); }
+button[type="reset"]{
+  background: color-mix(in srgb, var(--surface) 88%, #000 12%); color: var(--text);
+  border: 1px solid var(--border); border-radius: 4px; padding: 12px 20px; font-size: 1em; cursor: pointer;
+}
+button[type="reset"]:hover{ background: color-mix(in srgb, var(--surface) 76%, #000 24%); }
+
+/* Hibajelzés */
+.form-control .error-message{ display: none; color: #D8000C; font-weight: 600; margin-top: 6px; font-size: .9rem; }
+.form-control.error input,
+.form-control.error textarea,
+.form-control.error select{
+  border: 2px solid #D8000C; box-shadow: 0 0 0 2px rgba(216,0,12,0.12) inset;
+}
+.form-control.error .error-message{ display: block; }
+
+/* =========================================================
+   TÉMA VÁLTÓ – FIX GOMB JOBB FELSŐ SAROK
+   ========================================================= */
+.theme-toggle-fixed{
+  position: fixed; top: 16px; right: 16px; z-index: 9999;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 36px; padding: 0 14px; border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 94%, var(--bg) 6%);
+  color: var(--text); font-weight: 700; letter-spacing: .2px; cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+.theme-toggle-fixed:hover{ background: color-mix(in srgb, var(--surface) 86%, var(--bg) 14%); }
+.theme-toggle-fixed:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* =========================================================
+   DARK-MÓD TIPOGRAFIA BOOST
+   ========================================================= */
+:root:not(.light) h1,
+:root:not(.light) h2,
+:root:not(.light) h3{
+  color: #f3f5fa;
+  text-shadow: 0 1px 0 rgba(0,0,0,.25);
+}
+:root:not(.light) h2{ border-bottom: 2px solid color-mix(in srgb, var(--primary) 55%, transparent); padding-bottom: 8px; }
+
+/* =========================================================
+   EGYÉB
+   ========================================================= */
+hr{
+  border: 0; height: 1px;
+  background: color-mix(in srgb, var(--text) 12%, transparent);
+  margin: var(--space-5) 0;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 768px){
+  nav ul{ gap: 14px; padding: 10px 12px; }
+  nav a { height: 44px; padding: 0 14px; }
+  .content-section{ gap: 24px; }
+  main{ padding: var(--space-3); }
+  .theme-toggle-fixed{ top: 12px; right: 12px; height: 34px; padding: 0 12px; }
+}

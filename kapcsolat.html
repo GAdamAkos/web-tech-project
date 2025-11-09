@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapcsolat - Képes Gábor Fotós</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+      .error-message {
+          color: #D8000C; /* Piros hiba szín */
+          font-size: 0.9em;
+          font-weight: bold;
+          display: none; /* Alapból rejtett, JS fogja mutatni */
+      }
+      
+      .form-control.error input,
+      .form-control.error textarea {
+          border: 2px solid #D8000C; /* Piros keret hiba esetén */
+      }
+  </style>
+</head>
+<body>
+
+    <header>
+        <h1>Képes Gábor</h1>
+        <p>Professzionális Fotós</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="portfolio.html">Portfólió</a></li>
+            <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+            <li><a href="rolam.html">Rólam</a></li>
+            <li><a href="kapcsolat.html" class="active">Kapcsolat</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Kapcsolat és Ajánlatkérés</h2>
+        <p>Kérdésed van vagy árajánlatot szeretnél kérni? Töltsd ki az alábbi űrlapot!</p>
+        
+        <form id="kapcsolat-urlap" action="#" method="POST">
+            
+          <div class="form-control">
+              <label for="nev">*Név:</label>
+              <input type="text" id="nev" name="nev">
+              <span class="error-message" id="nev-hiba">A név megadása kötelező!</span>
+          </div>
+
+          <div class="form-control">
+              <label for="email">*Email cím:</label>
+              <input type="email" id="email" name="email">
+              <span class="error-message" id="email-hiba">Érvényes email címet adj meg!</span>
+          </div>
+
+          <div class="form-control">
+              <label for="uzenet">Projekt leírása / Üzenet:</label>
+              <textarea id="uzenet" name="uzenet" rows="5"></textarea>
+          </div>
+
+          <div class="form-control">
+              <label for="datum">Fotózás tervezett dátuma:</label>
+              <input type="date" id="datum" name="datum">
+          </div>
+
+          <div class="form-control">
+              <label for="helyszin">Tervezett helyszín (város):</label>
+              <input list="helyszinek" id="helyszin" name="helyszin">
+              <datalist id="helyszinek">
+                  <option value="Budapest">
+                  <option value="Debrecen">
+                  <option value="Szeged">
+                  <option value="Miskolc">
+                  <option value="Pécs">
+              </datalist>
+          </div>
+
+          <fieldset>
+              <legend>Milyen típusú fotózás érdekli?</legend>
+              <input type="checkbox" id="tipus-portre" name="tipus" value="portre">
+              <label for="tipus-portre">Portré</label><br>
+              <input type="checkbox" id="tipus-eskuvo" name="tipus" value="eskuvo">
+              <label for="tipus-eskuvo">Esküvő</label><br>
+              <input type="checkbox" id="tipus-termeszet" name="tipus" value="termeszet">
+              <label for="tipus-termeszet">Természet/Tárgyfotó</label><br>
+              <input type="checkbox" id="tipus-egyeb" name="tipus" value="egyeb">
+              <label for="tipus-egyeb">Egyéb</label>
+          </fieldset>
+
+          <fieldset>
+              <legend>Hogyan talált rám?</legend>
+              <input type="radio" id="forras-google" name="forras" value="google">
+              <label for="forras-google">Google</label><br>
+              <input type="radio" id="forras-ismeros" name="forras" value="ismeros">
+              <label for="forras-ismeros">Ismerős ajánlása</label><br>
+              <input type="radio" id="forras-social" name="forras" value="social">
+              <label for="forras-social">Közösségi média</label>
+          </fieldset>
+          
+          <div class="form-control">
+              <label for="szin">Preferált színvilág/hangulat:</label>
+              <input type="color" id="szin" name="szin" value="#007BFF">
+          </div>
+
+          <div class="form-buttons">
+              <button type="submit" id="kuld-gomb">Ajánlatkérés küldése</button>
+              <button type="reset">Űrlap törlése</button>
+          </div>
+
+      </form>
+        
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2025 - Képes Gábor Projekt (Neptun-kód: DY98R5)</p>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
