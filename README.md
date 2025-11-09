@@ -1,48 +1,44 @@
-Képes Gábor – Photography Portfolio (Web Tech Project)
+# Képes Gábor – Photography Portfolio (Web Tech Project)
 
-A bilingual README: English below, magyar leírás lejjebb.
+_A bilingual README: English first, magyar leírás lejjebb._
 
-English
-Overview
+---
 
-A modern, responsive photography portfolio built with HTML5, CSS3, JavaScript, jQuery, JSON, and AJAX.
-The project demonstrates semantic HTML, form validation, a jQuery-powered lightbox gallery, custom video controls, a Dark/Light theme toggle with localStorage, and dynamic JSON loading for a “Latest News” sidebar.
+## 🇬🇧 English
 
-Live Preview
+### Overview
+A modern, responsive photography portfolio built with **HTML5, CSS3, JavaScript, jQuery, JSON, and AJAX**.  
+The project demonstrates semantic HTML, client-side form validation, a jQuery-powered lightbox gallery, custom video controls, a **Dark/Light theme toggle** persisted with `localStorage`, and dynamic JSON loading for a “Latest News” sidebar.
 
-Local server required (see “Run locally”).
+### Live Preview
+This project is static and can be served from any HTTP server.
 
-Works on XAMPP, VS Code Live Server, Python’s http.server, or can be deployed on GitHub Pages.
+- **XAMPP:** copy the folder into `htdocs`, then open `http://localhost/<folder>/`
+- **VS Code Live Server:** _Open with Live Server_ → `http://127.0.0.1:5500/`
+- **Python:** `python -m http.server 8080` → `http://localhost:8080/`
+- **GitHub Pages:** Settings → Pages → Deploy from branch
 
-Tech Stack
+> Note: Use HTTP (not `file://`) so `fetch('hirek.json')` works without CORS errors.
 
-Frontend: HTML5, CSS3 (custom design tokens, responsive layout), JavaScript (ES5/ES6), jQuery
+### Tech Stack
+- **Frontend:** HTML5, CSS3 (design tokens, responsive layout), JavaScript (ES5/ES6), jQuery
+- **Data:** `hirek.json` (fetched and rendered into the sidebar)
+- **Tooling:** none required; pure static assets
 
-Data: hirek.json (loaded via fetch)
+### Features
+- **Semantic layout:** `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`, `figure`
+- **Navigation:** sticky navbar with active state and proper keyboard focus
+- **Theme:** fixed top-right **Dark/Light toggle**, persisted via `localStorage`
+- **Gallery:** thumbnail grid + jQuery lightbox (`fadeIn`/`fadeOut`)
+- **Video:** custom **Play / Pause / Restart** buttons bound to a `<video>` element
+- **Forms:** client-side validation with error styling and messages
+- **Table:** styled pricing table with zebra rows and hover state
+- **News:** loads a (nested) **JSON** file via `fetch`/**AJAX** and injects it into `#hirek-box`
+- **Responsive:** fluid typography, 8pt spacing scale, mobile tweaks
+- **Accessibility:** large tap targets, visible focus rings, high contrast in both themes
 
-No build tools required
-
-Features
-
-Semantic layout: header, nav, main, section, article, aside, footer, figure
-
-Navigation: sticky navbar with active state and keyboard focus styles
-
-Theme: global Dark/Light switch (fixed top-right), persisted via localStorage
-
-Gallery: thumbnail grid + jQuery lightbox (fadeIn/fadeOut)
-
-Video: custom Play / Pause / Restart controls
-
-Forms: client-side validation (error styles, messages)
-
-Table: styled pricing table with zebra rows + hover
-
-News: hirek.json loaded with fetch/AJAX into #hirek-box
-
-Responsive: fluid typography, 8pt spacing scale, mobile tweaks
-
-Project Structure (example)
+### Project Structure (example)
+```
 /
 ├─ index.html
 ├─ portfolio.html
@@ -59,68 +55,113 @@ Project Structure (example)
    ├─ hero.jpg
    ├─ portfolio/...
    └─ ...
+```
 
-How to Run Locally
+### Run Locally (Step-by-step)
 
-Option A – XAMPP
+**XAMPP**
+1. Copy the project to `C:\xampp\htdocs\photography-portfolio\`
+2. Start **Apache** in XAMPP
+3. Open `http://localhost/photography-portfolio/`
+4. Test JSON: `http://localhost/photography-portfolio/hirek.json`
 
-Copy the project into C:\xampp\htdocs\photography-portfolio\
+**VS Code Live Server**
+1. Open the folder in VS Code
+2. Right-click `index.html` → **Open with Live Server**
+3. Browser opens at `http://127.0.0.1:5500/`
 
-Start Apache in XAMPP
-
-Open: http://localhost/photography-portfolio/
-
-Test JSON: http://localhost/photography-portfolio/hirek.json
-
-Option B – VS Code Live Server
-
-Open the folder in VS Code
-
-Right-click index.html → Open with Live Server
-
-Go to http://127.0.0.1:5500/
-
-Option C – Python
-
-# from project root
+**Python (3.x)**
+```bash
 python -m http.server 8080
-# then open: http://localhost:8080/
+# open http://localhost:8080/
+```
 
+**If pages live in subfolders**, adjust JSON paths accordingly (e.g., `../hirek.json`).
 
-Note: If some pages are inside subfolders, adjust JSON paths accordingly (e.g., ../hirek.json).
+### Screenshots
 
-Accessibility & UX
+- They can be found in the "screenshots" folder.
 
-Large tap targets, clear focus rings, accessible contrast in both themes
-
-Reduced motion friendly (no heavy animations)
-
-Logical heading hierarchy and semantic landmarks
-
-Instructor Checklist (Mapping to Requirements)
-
-HTML (5+ pages): index, portfolio, szolgaltatasok, rolam, kapcsolat
-
-HTML5 structure: header, nav, main, section, article, aside, footer used
-
-Elements: div, span, p, headings, img, table, a, ...
-
-Forms: text (single/multi-line), datalist, checkbox, radio, color/date (if included), buttons, ordered list
-
-Video: embedded with JS buttons (play/pause/restart)
-
-CSS: inline (limited), id/class selectors, table/menu/background/link/form/button styling; styles in external CSS and in-page <style> if required
-
-JS/jQuery/JSON/AJAX:
-
-Form validation with error messages and red borders
-
-jQuery animation (fadeIn/fadeOut) + element creation/modification
-
-Selectors by tag/class/id
-
-JSON file (nested) + AJAX (fetch) rendering on page
-
-License
-
+### License
 MIT – feel free to reuse with attribution.
+
+---
+
+## 🇭🇺 Magyar
+
+### Áttekintés
+Modern, reszponzív fotós portfólió **HTML5, CSS3, JavaScript, jQuery, JSON, AJAX** technológiákkal.  
+Bemutatja a szemantikus HTML-t, kliens oldali űrlap-ellenőrzést, jQuery-s lightbox galériát, egyedi videóvezérlést, **Dark/Light** témaváltást (mentve `localStorage`-ban), valamint a „Legújabb hír” doboz dinamikus betöltését JSON-ból.
+
+### Előnézet / futtatás
+A projekt statikus; bármely HTTP szerverről futtatható.
+
+- **XAMPP:** másold az `htdocs`-ba → `http://localhost/<mappa>/`
+- **VS Code Live Server:** jobb klikk → _Open with Live Server_
+- **Python:** `python -m http.server 8080` → `http://localhost:8080/`
+- **GitHub Pages:** Settings → Pages → Deploy from branch
+
+> Fontos: HTTP-n nézd (ne `file://`), hogy a `fetch('hirek.json')` működjön.
+
+### Technológiák
+- **Frontend:** HTML5, CSS3 (design tokenek, reszponzív elrendezés), JavaScript (ES5/ES6), jQuery
+- **Adat:** `hirek.json` (betöltve és a side-barba renderelve)
+- **Build:** nincs szükség külön build folyamatra
+
+### Fő funkciók
+- **Szemantika:** `header`, `nav`, `main`, `section`, `article`, `aside`, `footer`, `figure`
+- **Navigáció:** sticky menü, aktív állapot, jól látható fókusz
+- **Téma:** jobb felső sarokban **Dark/Light** váltó, `localStorage`-ban mentve
+- **Galéria:** bélyegképek + jQuery lightbox (fade animációk)
+- **Videó:** **Lejátszás / Szünet / Újra** gombok
+- **Űrlapok:** kliens oldali ellenőrzés (piros keret + hibaüzenet)
+- **Táblázat:** stílusos árlista zebra-sorokkal, hoverrel
+- **Hírek:** **beágyazott JSON** betöltése `fetch`/AJAX-szal a `#hirek-box`-ba
+- **Reszponzív:** fluid tipó, 8pt raszter, mobil finomhangolások
+- **Akadálymentesség:** nagy tappolható felületek, hangsúlyos fókusz, erős kontraszt mindkét témában
+
+### Projekt felépítése (példa)
+```
+/
+├─ index.html
+├─ portfolio.html
+├─ szolgaltatasok.html
+├─ rolam.html
+├─ kapcsolat.html
+├─ hirek.json
+├─ css/
+│  └─ style.css
+├─ js/
+│  ├─ jquery.min.js
+│  └─ main.js
+└─ images/
+   ├─ hero.jpg
+   ├─ portfolio/...
+   └─ ...
+```
+
+### Helyi futtatás (lépésről lépésre)
+
+**XAMPP**
+1. Másold ide: `C:\xampp\htdocs\foto-portfolio\`
+2. Indítsd az **Apache**-ot
+3. Nyisd meg: `http://localhost/foto-portfolio/`
+4. JSON ellenőrzés: `http://localhost/foto-portfolio/hirek.json`
+
+**VS Code Live Server**
+- Jobb klikk `index.html` → **Open with Live Server** → `http://127.0.0.1:5500/`
+
+**Python (3.x)**
+```bash
+python -m http.server 8080
+# böngésző: http://localhost:8080/
+```
+
+**Ha egyes oldalak almappában vannak**, igazítsd a JSON elérési útját (pl. `../hirek.json`).
+
+### Képernyőképek
+
+- A képernyőfotók a "screenshots" mappában találhatóak.
+
+### Licenc
+MIT – szabadon felhasználható forráshivatkozással.
