@@ -62,8 +62,7 @@ This project is static and can be served from any HTTP server.
 **XAMPP**
 1. Copy the project to `C:\xampp\htdocs\photography-portfolio\`
 2. Start **Apache** in XAMPP
-3. Open `http://localhost/photography-portfolio/`
-4. Test JSON: `http://localhost/photography-portfolio/hirek.json`
+3. Open `http://localhost/DY98R5WebTech`
 
 **VS Code Live Server**
 1. Open the folder in VS Code
@@ -145,8 +144,7 @@ A projekt statikus; bármely HTTP szerverről futtatható.
 **XAMPP**
 1. Másold ide: `C:\xampp\htdocs\foto-portfolio\`
 2. Indítsd az **Apache**-ot
-3. Nyisd meg: `http://localhost/foto-portfolio/`
-4. JSON ellenőrzés: `http://localhost/foto-portfolio/hirek.json`
+3. Nyisd meg: `http://localhost/DY98R5WebTech`
 
 **VS Code Live Server**
 - Jobb klikk `index.html` → **Open with Live Server** → `http://127.0.0.1:5500/`
